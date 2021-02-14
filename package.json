@@ -1,0 +1,11 @@
+{
+  "name": "TaxyDesignModel",
+  "version": "0.0.1",
+  "description": "The goal of this project is to learn the creation of models based on the DDD principle.",
+  "main": "index.js",
+  "author": "Sergey Dirko",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "2.2.1"
+  }
+}
