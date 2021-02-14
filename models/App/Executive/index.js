@@ -1,5 +1,6 @@
 const OrderInterface = require('../Order/interface');
 const Validator = require('../Validator');
+const DB = require('../../DataBase');
 
 class Executive {
     constructor(params) {
@@ -18,8 +19,7 @@ class Executive {
     }
 
     execute() {
-        const order = OrderInterface;
-        order.do('create', this.order);
+        const Order = new OrderInterface(DB, this.order);
     }
 
     init(unvalidatedParams) {

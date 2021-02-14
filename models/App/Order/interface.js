@@ -1,6 +1,10 @@
 const Order = require('./index');
 
-class OrderInterface extends Order {
+class OrderInterface {
+    constructor(db, order) {
+        this.order = new Order(db, order);
+    }
+
     do(action, order) {
         if (!action) {
             return false
@@ -8,13 +12,13 @@ class OrderInterface extends Order {
 
         switch (action) {
             case 'create':
-                this.createOrder(order)
+                this.methods.createOrder(order)
                 return true;
             case 'update':
-                this.updateOrder(order)
+                this.methods.updateOrder(order)
                 return true;
             case 'remove':
-                this.deleteOrder(order)
+                this.methods.deleteOrder(order)
                 return true;
             default:
                 return false
@@ -22,4 +26,4 @@ class OrderInterface extends Order {
     }
 }
 
-module.exports = new OrderInterface();
+module.exports = OrderInterface;

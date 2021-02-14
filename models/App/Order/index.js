@@ -1,6 +1,7 @@
 class Order {
-    constructor(db) {
+    constructor(db, order) {
         this.store = db;
+        this.order = order;
     }
 
     createOrder(order) {
