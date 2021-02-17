@@ -1,8 +1,8 @@
 const Order = require('./index');
 
 class OrderInterface {
-    constructor(db, order) {
-        this.order = new Order(db, order);
+    constructor(db) {
+        this.methods = new Order(db);
     }
 
     do(action, order) {

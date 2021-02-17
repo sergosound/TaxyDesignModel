@@ -1,7 +1,6 @@
 class Order {
-    constructor(db, order) {
+    constructor(db) {
         this.store = db;
-        this.order = order;
     }
 
     createOrder(order) {
@@ -17,10 +16,13 @@ class Order {
                 return ord.id !== id;
             }
         })
-        store.orders = {
-            ...store.orders.slice(0, idx),
-            ...order,
-            ...store.orders.slice(idx)
+
+        if (typeof idx === 'number') {
+            store.orders = {
+                ...store.orders.slice(0, idx),
+                ...order,
+                ...store.orders.slice(idx)
+            }
         }
     }
     deleteOrder(id) {

@@ -6,11 +6,11 @@ class Executive {
     constructor(params) {
         const { consumerId, executiveId, orderId, action, date, location } = params;
 
+        this.consumerId = consumerId;
+        this.executiveId = executiveId;
+        this.action = action;
         this.order = {
             orderId,
-            consumerId,
-            executiveId,
-            action,
             date,
             location,
         };
@@ -19,7 +19,8 @@ class Executive {
     }
 
     execute() {
-        const Order = new OrderInterface(DB, this.order);
+        const Order = new OrderInterface(DB);
+        Order.do(this.action, this.order);
     }
 
     init(unvalidatedParams) {
@@ -29,4 +30,4 @@ class Executive {
     }
 }
 
-export default Executive;
+module.exports = Executive;
